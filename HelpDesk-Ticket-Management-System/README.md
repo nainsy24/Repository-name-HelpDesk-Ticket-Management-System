@@ -132,7 +132,7 @@ SQL Server LocalDB
 ### 1. Clone Repository
 
 ```bash
-git clone https://github.com/Shriya-punnal/HelpDeskManagement.git
+git clone https://github.com/nainsy24/Repository-name-HelpDesk-Ticket-Management-System.git
 ```
 
 ### 2. Open Solution
@@ -186,7 +186,7 @@ Run all tests.
 
 ## Author
 
-**Name:** Roli Dwivedi
+**Name:** Nainsy Sharma
 
 ---
 
