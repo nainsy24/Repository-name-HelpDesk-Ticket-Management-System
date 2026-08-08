@@ -1,0 +1,97 @@
+﻿@model HelpDesk.Mvc.Models.Ticket
+
+@{
+    ViewData["Title"] = "Edit Ticket";
+}
+
+<div class="container mt-4">
+
+    <h2>Edit Ticket</h2>
+
+    <hr />
+
+    <form asp-action="Edit" method="post">
+
+        <input asp-for="Id" type="hidden" />
+
+        <input asp-for="CreatedDate" type="hidden" />
+
+        <div class="mb-3">
+
+            <label asp-for="Title"></label>
+
+            <input asp-for="Title" class="form-control" />
+
+            <span asp-validation-for="Title" class="text-danger"></span>
+
+        </div>
+
+        <div class="mb-3">
+
+            <label asp-for="Description"></label>
+
+            <textarea asp-for="Description"
+                      class="form-control"></textarea>
+
+        </div>
+
+        <div class="mb-3">
+
+            <label asp-for="Priority"></label>
+
+            <select asp-for="Priority"
+                    class="form-select">
+
+                <option>Low</option>
+                <option>Medium</option>
+                <option>High</option>
+
+            </select>
+
+        </div>
+
+        <div class="mb-3">
+
+            <label asp-for="Status"></label>
+
+            <select asp-for="Status"
+                    class="form-select">
+
+                <option>Open</option>
+                <option>In Progress</option>
+                <option>Closed</option>
+
+            </select>
+
+        </div>
+
+        <div class="mb-3">
+
+            <label asp-for="RaisedBy"></label>
+
+            <input asp-for="RaisedBy"
+                   class="form-control" />
+
+        </div>
+
+        <button class="btn btn-success">
+
+            Update
+
+        </button>
+
+        <a asp-action="Index"
+           class="btn btn-secondary">
+
+            Cancel
+
+        </a>
+
+    </form>
+
+</div>
+
+@section Scripts
+{
+    <partial name="_ValidationScriptsPartial" />
+}

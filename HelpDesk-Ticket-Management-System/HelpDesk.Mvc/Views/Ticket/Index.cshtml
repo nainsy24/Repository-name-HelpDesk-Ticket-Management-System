@@ -1,0 +1,160 @@
+﻿@model HelpDesk.Mvc.Models.DashboardViewModel
+
+@{
+    ViewData["Title"] = "Help Desk Dashboard";
+}
+
+<div class="container mt-4">
+
+    <h2 class="mb-4">Help Desk Dashboard</h2>
+
+    <div class="row">
+
+        <div class="col-md-3">
+            <div class="card text-white bg-primary mb-3">
+                <div class="card-body">
+                    <h5>Total Tickets</h5>
+                    <h2>@Model.TotalTickets</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card text-white bg-success mb-3">
+                <div class="card-body">
+                    <h5>Open</h5>
+                    <h2>@Model.OpenTickets</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card text-dark bg-warning mb-3">
+                <div class="card-body">
+                    <h5>In Progress</h5>
+                    <h2>@Model.InProgressTickets</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card text-white bg-danger mb-3">
+                <div class="card-body">
+                    <h5>Closed</h5>
+                    <h2>@Model.ClosedTickets</h2>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <a asp-action="Create" class="btn btn-primary mb-3">
+        Create New Ticket
+    </a>
+
+    <form asp-action="Filter" method="get" class="row mb-3">
+
+        <div class="col-md-4">
+
+            <select class="form-select" name="status">
+
+                <option value="">All Tickets</option>
+
+                <option value="Open">Open</option>
+
+                <option value="In Progress">In Progress</option>
+
+                <option value="Closed">Closed</option>
+
+            </select>
+
+        </div>
+
+        <div class="col-md-2">
+
+            <button class="btn btn-success" type="submit">
+
+                Filter
+
+            </button>
+
+        </div>
+
+    </form>
+
+    <table class="table table-bordered table-striped">
+
+        <thead class="table-dark">
+
+            <tr>
+
+                <th>ID</th>
+
+                <th>Title</th>
+
+                <th>Description</th>
+
+                <th>Priority</th>
+
+                <th>Status</th>
+
+                <th>Raised By</th>
+
+                <th>Created</th>
+
+                <th>Actions</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            @foreach (var item in Model.Tickets)
+            {
+                <tr>
+
+                    <td>@item.Id</td>
+
+                    <td>@item.Title</td>
+
+                    <td>@item.Description</td>
+
+                    <td>@item.Priority</td>
+
+                    <td>@item.Status</td>
+
+                    <td>@item.RaisedBy</td>
+
+                    <td>@item.CreatedDate.ToShortDateString()</td>
+
+                    <td>
+
+                        <a asp-action="Details"
+                           asp-route-id="@item.Id"
+                           class="btn btn-info btn-sm">
+                            Details
+                        </a>
+
+                        <a asp-action="Edit"
+                           asp-route-id="@item.Id"
+                           class="btn btn-warning btn-sm">
+                            Edit
+                        </a>
+
+                        <a asp-action="Delete"
+                           asp-route-id="@item.Id"
+                           class="btn btn-danger btn-sm">
+                            Delete
+                        </a>
+
+                    </td>
+
+                </tr>
+            }
+
+        </tbody>
+
+    </table>
+
+</div>

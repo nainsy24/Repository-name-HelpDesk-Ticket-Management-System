@@ -1,0 +1,9 @@
+<Solution>
+  <Folder Name="/Solution Items/">
+    <File Path=".gitignore" />
+    <File Path="README.md" />
+  </Folder>
+  <Project Path="HelpDesk.Api/HelpDesk.Api.csproj" Id="c6999507-5b7c-4c77-893a-4d2dda7db2c1" />
+  <Project Path="HelpDesk.Mvc/HelpDesk.Mvc.csproj" Id="a15d0f3e-be0a-4497-9c9a-19cf3b586bb3" />
+  <Project Path="HelpDesk.Tests/HelpDesk.Tests.csproj" Id="69beed09-ce5a-47bd-873f-33256b127bfa" />
+</Solution>
